@@ -24,32 +24,42 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func reloadData(page: Int) {
         
-        let url            = NSURL(string:"http://frustration.me/api/public_timeline?page=\(page)")
-        let request        = NSURLRequest(URL: url)
-        let uridata:NSData = NSData(contentsOfURL: url)
+        let URL     = NSURL(string:"http://frustration.me/api/public_timeline?page=\(page)")!
+        let request = NSURLRequest(URL: URL)
         
-        var error: NSError!
         NSURLConnection.sendAsynchronousRequest(
             request,
-            queue: NSOperationQueue.mainQueue(),
-            completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                var json = NSJSONSerialization.JSONObjectWithData(
-                    data,
-                    options: NSJSONReadingOptions.MutableContainers,
-                    error: nil) as NSDictionary
+            queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse?, data:NSData?, error:NSError?) -> Void in
                 
-                var items = json.objectForKey("items") as Array<Dictionary<String, AnyObject>> // as NSArray
+                if data == nil {
+                    print("data is none")
+                    self.collectionView.reloadData()
+                    return
+                }
+                
+                var json = NSDictionary()
+
+                do {
+                    json = try NSJSONSerialization.JSONObjectWithData(
+                        data!,
+                        options: NSJSONReadingOptions.MutableContainers
+                        ) as! NSDictionary
+                    
+                } catch {
+                    print("Error")
+                }
+                
+                let items = json.objectForKey("items") as! Array<Dictionary<String, AnyObject>> // as NSArray
                 
                 for item in items {
                     self.data.addObject(item)
                 }
                 
-                self.currentPage = json.objectForKey("paginator")!.objectForKey("current_page") as Int
-                println("current page = \(self.currentPage)")
-                
+                self.currentPage = json.objectForKey("paginator")!.objectForKey("current_page") as! Int
+                print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
-        })
+        }
         
     }
 
@@ -64,7 +74,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println("SELECTED index: \(indexPath.section * 2 + indexPath.row)")
+        print("SELECTED index: \(indexPath.section * 2 + indexPath.row)")
     }
     
     // MARK: - UICollectionViewDataSource
@@ -73,7 +83,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
             "CollectionViewCell",
             forIndexPath: indexPath
-        ) as CollectionViewCell
+        ) as! CollectionViewCell
 
 
         let index = indexPath.section * 2 + indexPath.row
@@ -82,17 +92,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let title = self.data.objectAtIndex(index).objectForKey("title") as? String
         cell.titleLabel.text = "\(index):\(title)"
 
-        var q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        var q_main: dispatch_queue_t   = dispatch_get_main_queue();
+        let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        let q_main: dispatch_queue_t   = dispatch_get_main_queue();
         
         
         dispatch_async(q_global, {
 
-            var url               = self.data.objectAtIndex(index).objectForKey("image_l") as String
-            var imageURL: NSURL   = NSURL.URLWithString(url)
-            var imageData = NSData(contentsOfURL: imageURL)
-            
-            var image = self.resizeImage(UIImage(data: imageData), rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
+            let URLString               = self.data.objectAtIndex(index).objectForKey("image_l") as! String
+            let imageURL: NSURL = NSURL(string: URLString)!
+            let imageData = NSData(contentsOfURL: imageURL)!
+            let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
 
             dispatch_async(q_main, {
                 cell.mainImageView.image = image
@@ -116,8 +125,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // bottom?
         if self.collectionView.contentOffset.y >= (self.collectionView.contentSize.height - self.collectionView.bounds.size.height * 2) {
             
-            var q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            var q_main: dispatch_queue_t   = dispatch_get_main_queue();
+            let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            let q_main: dispatch_queue_t   = dispatch_get_main_queue();
             
             if self.loading == true {
                 return
@@ -131,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 dispatch_async(q_main, {
                     
                     self.loading = false
-                    println("end")
+                    print("end")
                     
                 })
             })

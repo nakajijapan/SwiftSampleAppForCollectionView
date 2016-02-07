@@ -1,3 +1,4 @@
 github "ishkawa/APIKit"
 github "ReactiveX/RxSwift"
 github "SwiftyJSON/SwiftyJSON"
+github "Alamofire/Alamofire"

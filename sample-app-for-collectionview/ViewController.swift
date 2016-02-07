@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView:UICollectionView!
     
-    var data:NSMutableArray  = NSMutableArray()
+    typealias ItemModel = Dictionary<String, AnyObject>
+    var data  = [ItemModel]()
     var loading:Bool         = false
     var currentPage:Int      = 1
     
@@ -43,10 +47,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     print("NSJSONSerialization error")
                 }
                 
-                let items = json.objectForKey("items") as! Array<Dictionary<String, AnyObject>> // as NSArray
+                let items = json["items"] as! Array<Dictionary<String, AnyObject>> // as NSArray
                 
                 for item in items {
-                    self.data.addObject(item)
+                    self.data.append(item)
                 }
                 
                 self.currentPage = json.objectForKey("paginator")!.objectForKey("current_page") as! Int
@@ -57,7 +61,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.loading = false
                 
         }
-        
     }
 
     // MARK: - UICollectionViewDelegate
@@ -86,7 +89,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let index = indexPath.section * 2 + indexPath.row
         
         cell.mainImageView.image = nil
-        let title = self.data.objectAtIndex(index).objectForKey("title") as? String
+        let title = self.data[index]["title"] as? String
         cell.titleLabel.text = "\(index):\(title)"
 
         let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -95,7 +98,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         dispatch_async(q_global, {
 
-            let URLString               = self.data.objectAtIndex(index).objectForKey("image_l") as! String
+            let URLString = self.data[index]["image_l"] as! String
             let imageURL: NSURL = NSURL(string: URLString)!
             let imageData = NSData(contentsOfURL: imageURL)!
             let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))

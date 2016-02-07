@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A701F0A400A99B1D57625D9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D37CD4F20BDB6534D16C1E /* Pods.framework */; };
 		DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DB19E9481C00F137F5 /* AppDelegate.swift */; };
 		DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DD19E9481C00F137F5 /* ViewController.swift */; };
 		DCE319E119E9481C00F137F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE319DF19E9481C00F137F5 /* Main.storyboard */; };
@@ -26,11 +27,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DC3A4B311C673F340043C0EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		87D37CD4F20BDB6534D16C1E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		950225E74EA0CB21B68000E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DCE319D619E9481C00F137F5 /* sample-app-for-collectionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-app-for-collectionview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE319DA19E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319DB19E9481C00F137F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCE319DD19E9481C00F137F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCE319DD19E9481C00F137F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		DCE319E019E9481C00F137F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCE319E219E9481C00F137F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCE319E519E9481C00F137F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -38,6 +54,7 @@
 		DCE319F019E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319F119E9481C00F137F5 /* sample_app_for_collectionviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample_app_for_collectionviewTests.swift; sourceTree = "<group>"; };
 		DCE319FD19E94E5300F137F5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EC430002CDB39B3A613381AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A701F0A400A99B1D57625D9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0F12C3FA3BE0FF55F6B0B47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87D37CD4F20BDB6534D16C1E /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DCE319CD19E9481C00F137F5 = {
 			isa = PBXGroup;
 			children = (
 				DCE319D819E9481C00F137F5 /* sample-app-for-collectionview */,
 				DCE319EE19E9481C00F137F5 /* sample-app-for-collectionviewTests */,
 				DCE319D719E9481C00F137F5 /* Products */,
+				FB7D14CE450A24ED21914367 /* Pods */,
+				C0F12C3FA3BE0FF55F6B0B47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +143,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FB7D14CE450A24ED21914367 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC430002CDB39B3A613381AF /* Pods.debug.xcconfig */,
+				950225E74EA0CB21B68000E0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +159,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCE319F519E9481C00F137F5 /* Build configuration list for PBXNativeTarget "sample-app-for-collectionview" */;
 			buildPhases = (
+				7B999CA6FE14723AFF2A33C1 /* Check Pods Manifest.lock */,
 				DCE319D219E9481C00F137F5 /* Sources */,
 				DCE319D319E9481C00F137F5 /* Frameworks */,
 				DCE319D419E9481C00F137F5 /* Resources */,
+				DC3A4B311C673F340043C0EF /* Embed Frameworks */,
+				7FCC320FB9A3E50001CCCDF4 /* Embed Pods Frameworks */,
+				2901CD2BB3D043F5E68AB09C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,7 +202,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = net.nakajijapan;
 				TargetAttributes = {
 					DCE319D519E9481C00F137F5 = {
@@ -211,6 +252,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2901CD2BB3D043F5E68AB09C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B999CA6FE14723AFF2A33C1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FCC320FB9A3E50001CCCDF4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DCE319D219E9481C00F137F5 /* Sources */ = {
@@ -281,6 +370,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -340,20 +430,32 @@
 		};
 		DCE319F619E9481C00F137F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC430002CDB39B3A613381AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "sample-app-for-collectionview/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		DCE319F719E9481C00F137F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 950225E74EA0CB21B68000E0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "sample-app-for-collectionview/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -372,6 +474,7 @@
 				);
 				INFOPLIST_FILE = "sample-app-for-collectionviewTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sample-app-for-collectionview.app/sample-app-for-collectionview";
 			};
@@ -387,6 +490,7 @@
 				);
 				INFOPLIST_FILE = "sample-app-for-collectionviewTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.nakajijapan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sample-app-for-collectionview.app/sample-app-for-collectionview";
 			};

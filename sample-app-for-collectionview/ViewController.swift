@@ -40,7 +40,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         ) as! NSDictionary
                     
                 } catch {
-                    print("Error")
+                    print("NSJSONSerialization error")
                 }
                 
                 let items = json.objectForKey("items") as! Array<Dictionary<String, AnyObject>> // as NSArray
@@ -53,6 +53,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
+                
+                self.loading = false
+                
         }
         
     }
@@ -120,23 +123,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if self.collectionView.contentOffset.y >= (self.collectionView.contentSize.height - self.collectionView.bounds.size.height * 2) {
             
             let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            let q_main: dispatch_queue_t   = dispatch_get_main_queue();
             
             if self.loading == true {
                 return
             }
             
+            self.loading = true
             dispatch_async(q_global, {
                 
-                self.loading = true
                 self.reloadData(self.currentPage + 1)
-                
-                dispatch_async(q_main, {
-                    
-                    self.loading = false
-                    print("end")
-                    
-                })
+
             })
             
         }

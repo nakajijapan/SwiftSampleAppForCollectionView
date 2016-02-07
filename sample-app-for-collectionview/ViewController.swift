@@ -31,12 +31,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             request,
             queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse?, data:NSData?, error:NSError?) -> Void in
                 
-                if data == nil {
-                    print("data is none")
-                    self.collectionView.reloadData()
-                    return
-                }
-                
                 var json = NSDictionary()
 
                 do {

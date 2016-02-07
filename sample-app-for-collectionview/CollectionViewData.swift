@@ -43,7 +43,7 @@ class CollectionViewData:RxScrollViewDelegateProxy {
             self.loading = true
             dispatch_async(q_global, {
                 
-                self.viewController.reloadData(self.currentPage + 1)
+                self.viewController.reloadData2(self.currentPage + 1)
                 
             })
             

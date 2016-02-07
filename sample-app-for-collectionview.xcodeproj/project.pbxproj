@@ -18,6 +18,8 @@
 		DC868DE91C677417002228EF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DE01C677417002228EF /* Alamofire.framework */; };
 		DC868DEA1C677417002228EF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DE01C677417002228EF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEC1C677B89002228EF /* CollectionViewData.swift */; };
+		DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */; };
+		DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DF01C678ECB002228EF /* Scheculer.swift */; };
 		DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DB19E9481C00F137F5 /* AppDelegate.swift */; };
 		DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DD19E9481C00F137F5 /* ViewController.swift */; };
 		DCE319E119E9481C00F137F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE319DF19E9481C00F137F5 /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		DC868DDF1C677417002228EF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		DC868DE01C677417002228EF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		DC868DEC1C677B89002228EF /* CollectionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
+		DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
+		DC868DF01C678ECB002228EF /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
 		DCE319D619E9481C00F137F5 /* sample-app-for-collectionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-app-for-collectionview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE319DA19E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319DB19E9481C00F137F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
 				DCE319D919E9481C00F137F5 /* Supporting Files */,
 				DC868DEC1C677B89002228EF /* CollectionViewData.swift */,
+				DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */,
+				DC868DF01C678ECB002228EF /* Scheculer.swift */,
 			);
 			path = "sample-app-for-collectionview";
 			sourceTree = "<group>";
@@ -342,6 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */,
+				DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */,
+				DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */,
 				DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */,
 				DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */,
 				DCE319FE19E94E5300F137F5 /* CollectionViewCell.swift in Sources */,

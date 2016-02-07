@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxBlocking
+import SwiftyJSON
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -33,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.data.asObservable().bindTo(self.collectionView.rx_itemsWithCellIdentifier("CollectionViewCell")) { (row, object, cell: CollectionViewCell) in
 
-            print("row(\(row), object(\(object)) indexPath(\(cell)))")
+            //print("row(\(row), object(\(object)) indexPath(\(cell)))")
             
             cell.mainImageView.image = nil
             let title = object["title"] as? String
@@ -63,42 +64,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         self.reloadData(1)
     }
-    
     func reloadData(page: Int) {
-        
-        let URL     = NSURL(string:"http://frustration.me/api/public_timeline?page=\(page)")!
-        let request = NSURLRequest(URL: URL)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            request,
-            queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse?, data:NSData?, error:NSError?) -> Void in
+        let scheduler = Scheduler()
+        let client = NKJHttpClient()
+        client.get(NSURL(string: "http://frustration.me/api/public_timeline")!, parameters: ["page": "\(page)"], headers: nil)
+            .observeOn(scheduler.backgroundWorkScheduler)
+            .observeOn(scheduler.mainScheduler)
+            .subscribe(onNext: { (data, response) -> Void in
+                let jsonItems = JSON(data: data)
                 
-                var json = NSDictionary()
-
-                do {
-                    json = try NSJSONSerialization.JSONObjectWithData(
-                        data!,
-                        options: NSJSONReadingOptions.MutableContainers
-                        ) as! NSDictionary
-                    
-                } catch {
-                    print("NSJSONSerialization error")
+                for item:JSON in jsonItems["items"].array! {
+                    self.data.value.append(item.dictionaryObject!)
                 }
                 
-                let items = json["items"] as! Array<Dictionary<String, AnyObject>> // as NSArray
-                
-                for item in items {
-                    self.data.value.append(item)
-                }
-                
-                self.currentPage = json.objectForKey("paginator")!.objectForKey("current_page") as! Int
+                self.currentPage = jsonItems["paginator"]["current_page"].int!
                 print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
                 
                 self.loading = false
+
                 
-        }
+                }, onError: { (e) -> Void in
+                    print(e)
+                }, onCompleted: { () -> Void in
+                    print("completed")
+            }).addDisposableTo(disposeBag)
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout

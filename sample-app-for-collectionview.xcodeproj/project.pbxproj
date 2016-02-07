@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A701F0A400A99B1D57625D9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D37CD4F20BDB6534D16C1E /* Pods.framework */; };
+		DC868DE11C677417002228EF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDC1C677417002228EF /* SwiftyJSON.framework */; };
+		DC868DE21C677417002228EF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDC1C677417002228EF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC868DE31C677417002228EF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDD1C677417002228EF /* RxSwift.framework */; };
+		DC868DE41C677417002228EF /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDD1C677417002228EF /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC868DE51C677417002228EF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDE1C677417002228EF /* RxCocoa.framework */; };
+		DC868DE61C677417002228EF /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDE1C677417002228EF /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC868DE71C677417002228EF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDF1C677417002228EF /* RxBlocking.framework */; };
+		DC868DE81C677417002228EF /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DDF1C677417002228EF /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC868DE91C677417002228EF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DE01C677417002228EF /* Alamofire.framework */; };
+		DC868DEA1C677417002228EF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC868DE01C677417002228EF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEC1C677B89002228EF /* CollectionViewData.swift */; };
 		DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DB19E9481C00F137F5 /* AppDelegate.swift */; };
 		DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DD19E9481C00F137F5 /* ViewController.swift */; };
 		DCE319E119E9481C00F137F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE319DF19E9481C00F137F5 /* Main.storyboard */; };
@@ -28,12 +38,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DC3A4B311C673F340043C0EF /* Embed Frameworks */ = {
+		DC868DEB1C677418002228EF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DC868DE61C677417002228EF /* RxCocoa.framework in Embed Frameworks */,
+				DC868DE41C677417002228EF /* RxSwift.framework in Embed Frameworks */,
+				DC868DE21C677417002228EF /* SwiftyJSON.framework in Embed Frameworks */,
+				DC868DEA1C677417002228EF /* Alamofire.framework in Embed Frameworks */,
+				DC868DE81C677417002228EF /* RxBlocking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +58,14 @@
 /* Begin PBXFileReference section */
 		87D37CD4F20BDB6534D16C1E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		950225E74EA0CB21B68000E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DC868DD31C67732E002228EF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "Pods/../build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
+		DC868DD51C67736A002228EF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		DC868DDC1C677417002228EF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		DC868DDD1C677417002228EF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		DC868DDE1C677417002228EF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		DC868DDF1C677417002228EF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		DC868DE01C677417002228EF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		DC868DEC1C677B89002228EF /* CollectionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
 		DCE319D619E9481C00F137F5 /* sample-app-for-collectionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-app-for-collectionview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE319DA19E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319DB19E9481C00F137F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +85,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A701F0A400A99B1D57625D9 /* Pods.framework in Frameworks */,
+				DC868DE51C677417002228EF /* RxCocoa.framework in Frameworks */,
+				DC868DE91C677417002228EF /* Alamofire.framework in Frameworks */,
+				DC868DE71C677417002228EF /* RxBlocking.framework in Frameworks */,
+				DC868DE11C677417002228EF /* SwiftyJSON.framework in Frameworks */,
+				DC868DE31C677417002228EF /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +106,8 @@
 		C0F12C3FA3BE0FF55F6B0B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC868DD51C67736A002228EF /* SwiftyJSON.framework */,
+				DC868DD31C67732E002228EF /* RxSwift.framework */,
 				87D37CD4F20BDB6534D16C1E /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -87,6 +116,11 @@
 		DCE319CD19E9481C00F137F5 = {
 			isa = PBXGroup;
 			children = (
+				DC868DDC1C677417002228EF /* SwiftyJSON.framework */,
+				DC868DDD1C677417002228EF /* RxSwift.framework */,
+				DC868DDE1C677417002228EF /* RxCocoa.framework */,
+				DC868DDF1C677417002228EF /* RxBlocking.framework */,
+				DC868DE01C677417002228EF /* Alamofire.framework */,
 				DCE319D819E9481C00F137F5 /* sample-app-for-collectionview */,
 				DCE319EE19E9481C00F137F5 /* sample-app-for-collectionviewTests */,
 				DCE319D719E9481C00F137F5 /* Products */,
@@ -114,6 +148,7 @@
 				DCE319E219E9481C00F137F5 /* Images.xcassets */,
 				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
 				DCE319D919E9481C00F137F5 /* Supporting Files */,
+				DC868DEC1C677B89002228EF /* CollectionViewData.swift */,
 			);
 			path = "sample-app-for-collectionview";
 			sourceTree = "<group>";
@@ -163,9 +198,9 @@
 				DCE319D219E9481C00F137F5 /* Sources */,
 				DCE319D319E9481C00F137F5 /* Frameworks */,
 				DCE319D419E9481C00F137F5 /* Resources */,
-				DC3A4B311C673F340043C0EF /* Embed Frameworks */,
 				7FCC320FB9A3E50001CCCDF4 /* Embed Pods Frameworks */,
 				2901CD2BB3D043F5E68AB09C /* Copy Pods Resources */,
+				DC868DEB1C677418002228EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */,
 				DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */,
 				DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */,
 				DCE319FE19E94E5300F137F5 /* CollectionViewCell.swift in Sources */,
@@ -436,6 +472,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "sample-app-for-collectionview/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -452,6 +489,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "sample-app-for-collectionview/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

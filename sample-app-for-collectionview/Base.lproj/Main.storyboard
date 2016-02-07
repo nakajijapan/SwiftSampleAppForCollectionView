@@ -84,7 +84,6 @@ aa</string>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="dPL-9E-c2S"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="1o4-5f-ZDw"/>
                                 </connections>
                             </collectionView>

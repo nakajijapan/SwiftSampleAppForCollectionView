@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C07962B9538639FB439E2DF0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87D37CD4F20BDB6534D16C1E /* Pods.framework */; };
-		DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEC1C677B89002228EF /* CollectionViewData.swift */; };
 		DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */; };
 		DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DF01C678ECB002228EF /* Scheculer.swift */; };
 		DCB414C61C6F4B7C009B077D /* TopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */; };
@@ -49,7 +48,6 @@
 		950225E74EA0CB21B68000E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DC868DD31C67732E002228EF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "Pods/../build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
 		DC868DD51C67736A002228EF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		DC868DEC1C677B89002228EF /* CollectionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
 		DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
 		DC868DF01C678ECB002228EF /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
 		DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +97,10 @@
 		DCB414C71C6F4BFF009B077D /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DCE319DD19E9481C00F137F5 /* ViewController.swift */,
+				DCE319FD19E94E5300F137F5 /* CollectionViewCell.swift */,
+				DC868DF01C678ECB002228EF /* Scheculer.swift */,
+				DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */,
 			);
 			name = RxSwift;
 			sourceTree = "<group>";
@@ -127,17 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				DCE319DB19E9481C00F137F5 /* AppDelegate.swift */,
-				DCE319DD19E9481C00F137F5 /* ViewController.swift */,
-				DCE319FD19E94E5300F137F5 /* CollectionViewCell.swift */,
 				DCE319DF19E9481C00F137F5 /* Main.storyboard */,
 				DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */,
 				DCE319E219E9481C00F137F5 /* Images.xcassets */,
 				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
 				DCE319D919E9481C00F137F5 /* Supporting Files */,
 				DCB414C71C6F4BFF009B077D /* RxSwift */,
-				DC868DEC1C677B89002228EF /* CollectionViewData.swift */,
-				DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */,
-				DC868DF01C678ECB002228EF /* Scheculer.swift */,
 			);
 			path = "sample-app-for-collectionview";
 			sourceTree = "<group>";
@@ -330,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */,
 				DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */,
 				DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */,
 				DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */,

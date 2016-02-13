@@ -11,6 +11,7 @@
 		DC868DED1C677B89002228EF /* CollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEC1C677B89002228EF /* CollectionViewData.swift */; };
 		DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */; };
 		DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DF01C678ECB002228EF /* Scheculer.swift */; };
+		DCB414C61C6F4B7C009B077D /* TopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */; };
 		DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DB19E9481C00F137F5 /* AppDelegate.swift */; };
 		DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DD19E9481C00F137F5 /* ViewController.swift */; };
 		DCE319E119E9481C00F137F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE319DF19E9481C00F137F5 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		DC868DEC1C677B89002228EF /* CollectionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewData.swift; sourceTree = "<group>"; };
 		DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
 		DC868DF01C678ECB002228EF /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
+		DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewController.swift; sourceTree = "<group>"; };
 		DCE319D619E9481C00F137F5 /* sample-app-for-collectionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-app-for-collectionview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE319DA19E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319DB19E9481C00F137F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DCB414C71C6F4BFF009B077D /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = RxSwift;
+			sourceTree = "<group>";
+		};
 		DCE319CD19E9481C00F137F5 = {
 			isa = PBXGroup;
 			children = (
@@ -121,9 +130,11 @@
 				DCE319DD19E9481C00F137F5 /* ViewController.swift */,
 				DCE319FD19E94E5300F137F5 /* CollectionViewCell.swift */,
 				DCE319DF19E9481C00F137F5 /* Main.storyboard */,
+				DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */,
 				DCE319E219E9481C00F137F5 /* Images.xcassets */,
 				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
 				DCE319D919E9481C00F137F5 /* Supporting Files */,
+				DCB414C71C6F4BFF009B077D /* RxSwift */,
 				DC868DEC1C677B89002228EF /* CollectionViewData.swift */,
 				DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */,
 				DC868DF01C678ECB002228EF /* Scheculer.swift */,
@@ -324,6 +335,7 @@
 				DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */,
 				DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */,
 				DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */,
+				DCB414C61C6F4B7C009B077D /* TopTableViewController.swift in Sources */,
 				DCE319FE19E94E5300F137F5 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

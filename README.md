@@ -1,7 +1,8 @@
 SwiftSampleAppForCollectionView
 ==============
 
-SwiftでUICollectionView利用してにアプリ作成してみた
+Try to create a simple application using CollectionView (Normal Version and RxSwift Version)
+
 
 
 ![nakajijapan](./sample.gif)

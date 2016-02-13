@@ -20,3 +20,5 @@ DerivedData
 *.ipa
 
 xcuserdata
+Carthage
+Pods

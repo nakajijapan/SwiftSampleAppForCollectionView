@@ -7,119 +7,102 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxBlocking
+import SwiftyJSON
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     @IBOutlet var collectionView:UICollectionView!
     
     typealias ItemModel = Dictionary<String, AnyObject>
-    var data  = [ItemModel]()
+    var data = Variable<[ItemModel]>([])
     var loading:Bool         = false
     var currentPage:Int      = 1
+
+    let disposeBag = DisposeBag()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.collectionView.rx_itemSelected.subscribeNext { (indexPath) -> Void in
+            print("selected \(indexPath)")
+        }.addDisposableTo(disposeBag)
         
+
+        self.data.asObservable().bindTo(self.collectionView.rx_itemsWithCellIdentifier("CollectionViewCell")) { (row, object, cell: CollectionViewCell) in
+
+            //print("row(\(row), object(\(object)) indexPath(\(cell)))")
+            
+            cell.mainImageView.image = nil
+            let title = object["title"] as? String
+            cell.titleLabel.text = "\(index):\(title)"
+
+            
+            let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            let q_main: dispatch_queue_t   = dispatch_get_main_queue();
+            
+
+            dispatch_async(q_global, {
+                
+                let URLString = object["image_l"] as! String
+                let imageURL: NSURL = NSURL(string: URLString)!
+                let imageData = NSData(contentsOfURL: imageURL)!
+                let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
+                
+                dispatch_async(q_main, {
+                    cell.mainImageView.image = image
+                })
+                
+            })
+
+            
+        }.addDisposableTo(disposeBag)
         
-        
+       
         self.reloadData(1)
     }
-    
     func reloadData(page: Int) {
-        
-        let URL     = NSURL(string:"http://frustration.me/api/public_timeline?page=\(page)")!
-        let request = NSURLRequest(URL: URL)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            request,
-            queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse?, data:NSData?, error:NSError?) -> Void in
+        let scheduler = Scheduler()
+        let client = NKJHttpClient()
+        client.get(NSURL(string: "http://frustration.me/api/public_timeline")!, parameters: ["page": "\(page)"], headers: nil)
+            .observeOn(scheduler.backgroundWorkScheduler)
+            .observeOn(scheduler.mainScheduler)
+            .subscribe(onNext: { (data, response) -> Void in
+                let jsonItems = JSON(data: data)
                 
-                var json = NSDictionary()
-                
-                do {
-                    json = try NSJSONSerialization.JSONObjectWithData(
-                        data!,
-                        options: NSJSONReadingOptions.MutableContainers
-                        ) as! NSDictionary
-                    
-                } catch {
-                    print("NSJSONSerialization error")
+                for item:JSON in jsonItems["items"].array! {
+                    self.data.value.append(item.dictionaryObject!)
                 }
                 
-                let items = json["items"] as! Array<Dictionary<String, AnyObject>> // as NSArray
-                
-                for item in items {
-                    self.data.append(item)
-                }
-                
-                self.currentPage = json.objectForKey("paginator")!.objectForKey("current_page") as! Int
+                self.currentPage = jsonItems["paginator"]["current_page"].int!
                 print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
                 
                 self.loading = false
+
                 
-        }
+                }, onError: { (e) -> Void in
+                    print(e)
+                }, onCompleted: { () -> Void in
+                    print("completed")
+            }).addDisposableTo(disposeBag)
     }
-    
-    // MARK: - UICollectionViewDelegate
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return self.data.count / 2
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("SELECTED index: \(indexPath.section * 2 + indexPath.row)")
-    }
-    
-    // MARK: - UICollectionViewDataSource
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            "CollectionViewCell",
-            forIndexPath: indexPath
-            ) as! CollectionViewCell
-        
-        
-        let index = indexPath.section * 2 + indexPath.row
-        
-        cell.mainImageView.image = nil
-        let title = self.data[index]["title"] as? String
-        cell.titleLabel.text = "\(index):\(title)"
-        
-        let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        let q_main: dispatch_queue_t   = dispatch_get_main_queue();
-        
-        
-        dispatch_async(q_global, {
-            
-            let URLString = self.data[index]["image_l"] as! String
-            let imageURL: NSURL = NSURL(string: URLString)!
-            let imageData = NSData(contentsOfURL: imageURL)!
-            let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
-            
-            dispatch_async(q_main, {
-                cell.mainImageView.image = image
-            })
-            
-        })
-        
-        return cell
-    }
+
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let side = (self.view.frame.size.width - 8 * 3) / 2.0
         return CGSizeMake(side, side)
-        
+
     }
-    
+
     // MARK: - UIScrollViewDelegate
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         // bottom?
@@ -135,7 +118,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             dispatch_async(q_global, {
                 
                 self.reloadData(self.currentPage + 1)
-                
+
             })
             
         }

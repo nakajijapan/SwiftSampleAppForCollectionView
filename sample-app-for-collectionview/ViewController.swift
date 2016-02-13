@@ -31,7 +31,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print("selected \(indexPath)")
         }.addDisposableTo(disposeBag)
         
-        
+
         self.data.asObservable().bindTo(self.collectionView.rx_itemsWithCellIdentifier("CollectionViewCell")) { (row, object, cell: CollectionViewCell) in
 
             //print("row(\(row), object(\(object)) indexPath(\(cell)))")

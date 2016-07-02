@@ -1,11 +1,19 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
-# Uncomment this line if you're using Swift
-use_frameworks!
+target 'sample-app-for-collectionview' do
 
-pod 'RxSwift',    '~> 2.0'
-pod 'RxCocoa',    '~> 2.0'
-pod 'RxBlocking', '~> 2.0'
-pod 'Alamofire'
-pod 'SwiftyJSON'
+  use_frameworks!
 
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxBlocking'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Himotoki'
+
+  # Pods for sample-app-for-collectionview
+  target 'sample-app-for-collectionviewTests' do
+    inherit! :search_paths
+
+
+  end
+
+end

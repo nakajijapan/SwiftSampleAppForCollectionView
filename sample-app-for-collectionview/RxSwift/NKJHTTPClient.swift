@@ -23,9 +23,9 @@ public class NKJHttpClient {
     }
     
     private func action(method: Alamofire.Method, url: NSURL, parameters: [String:String]?, headers: [String:String]?) -> Observable<(NSData, NSHTTPURLResponse)> {
-            let request = NKJHttpClient.manager.request(method, url, parameters: parameters, encoding: ParameterEncoding.URL).request
-            let mutableRequest = setHeader(headers, mutableRequest: request!.mutableCopy() as! NSMutableURLRequest)
-            return NKJHttpClient.manager.session.rx_response(mutableRequest)
+        let request = NKJHttpClient.manager.request(method, url, parameters: parameters, encoding: ParameterEncoding.URL).request
+        let mutableRequest = setHeader(headers, mutableRequest: request!.mutableCopy() as! NSMutableURLRequest)
+        return NKJHttpClient.manager.session.rx_response(mutableRequest)
     }
     
     private func setHeader(headers: [String:String]?, mutableRequest: NSMutableURLRequest) -> NSMutableURLRequest {

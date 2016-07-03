@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RxSwiftHimotokiViewController.swift
 //  sample-app-for-collectionview
 //
 //  Created by nakajijapan on 10/11/14.
@@ -10,17 +10,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxBlocking
-import SwiftyJSON
+import Himotoki
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+class RxSwiftHimotokiViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView:UICollectionView!
     
-    typealias ItemModel = Dictionary<String, AnyObject>
-    var data = Variable<[ItemModel]>([])
+    var items = Variable<[Item]>([])
     var loading:Bool         = false
     var currentPage:Int      = 1
-
     let disposeBag = DisposeBag()
 
     
@@ -32,13 +31,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }.addDisposableTo(disposeBag)
         
 
-        self.data.asObservable().bindTo(self.collectionView.rx_itemsWithCellIdentifier("CollectionViewCell")) { (row, object, cell: CollectionViewCell) in
+        self.items.asObservable().bindTo(self.collectionView.rx_itemsWithCellIdentifier("CollectionViewCell")) { (row, object, cell: CollectionViewCell) in
 
             //print("row(\(row), object(\(object)) indexPath(\(cell)))")
             
             cell.mainImageView.image = nil
-            let title = object["title"] as? String
-            cell.titleLabel.text = "\(index):\(title)"
+            cell.titleLabel.text = "\(index):\(object.title)"
 
             
             let q_global: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -47,9 +45,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
             dispatch_async(q_global, {
                 
-                let URLString = object["image_l"] as! String
-                let imageURL: NSURL = NSURL(string: URLString)!
-                let imageData = NSData(contentsOfURL: imageURL)!
+                guard let imageData = NSData(contentsOfURL: object.imageL) else {
+                    return
+                }
+                
                 let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
                 
                 dispatch_async(q_main, {
@@ -64,26 +63,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         self.reloadData(1)
     }
+
     func reloadData(page: Int) {
+
         let scheduler = Scheduler()
         let client = NKJHttpClient()
         client.get(NSURL(string: "http://frustration.me/api/public_timeline")!, parameters: ["page": "\(page)"], headers: nil)
             .observeOn(scheduler.backgroundWorkScheduler)
             .observeOn(scheduler.mainScheduler)
             .subscribe(onNext: { (data, response) -> Void in
-                let jsonItems = JSON(data: data)
-                
-                for item:JSON in jsonItems["items"].array! {
-                    self.data.value.append(item.dictionaryObject!)
-                }
-                
-                self.currentPage = jsonItems["paginator"]["current_page"].int!
+
+                let jsonItems = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+                let arrayItems = jsonItems["items"] as! [AnyObject]
+
+                let _ = arrayItems.map({
+                    let item = try! Item.decodeValue($0)
+                    self.items.value.append(item)
+                })
+
+                self.currentPage = jsonItems["paginator"]!["current_page"] as! Int
                 print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
-                
                 self.loading = false
-
                 
                 }, onError: { (e) -> Void in
                     print(e)
@@ -92,17 +94,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }).addDisposableTo(disposeBag)
     }
 
-    // MARK: - UICollectionViewDelegateFlowLayout
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    // MARK: - Private
+    private func resizeImage(image: UIImage, rect: CGRect) -> UIImage {
         
-        let side = (self.view.frame.size.width - 8 * 3) / 2.0
-        return CGSizeMake(side, side)
-
+        UIGraphicsBeginImageContext(rect.size);
+        let resizedRect = CGRect(x: 0, y: 0, width: rect.size.width, height: image.size.height * (rect.size.width / image.size.width))
+        image.drawInRect(resizedRect)
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        
+        return resizedImage
     }
+    
+}
 
-    // MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 
+extension RxSwiftHimotokiViewController: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         // bottom?
@@ -118,23 +127,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             dispatch_async(q_global, {
                 
                 self.reloadData(self.currentPage + 1)
-
+                
             })
             
         }
     }
     
-    // MARK: - Private
-    private func resizeImage(image: UIImage, rect: CGRect) -> UIImage {
-        
-        UIGraphicsBeginImageContext(rect.size);
-        let resizedRect = CGRect(x: 0, y: 0, width: rect.size.width, height: image.size.height * (rect.size.width / image.size.width))
-        image.drawInRect(resizedRect)
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        
-        return resizedImage
-    }
-    
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension RxSwiftHimotokiViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let side = (self.view.frame.size.width - 8 * 3) / 2.0
+        return CGSizeMake(side, side)
+        
+    }
+
+}

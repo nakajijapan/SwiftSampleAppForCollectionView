@@ -85,7 +85,11 @@ class NormalCollectionViewController: UIViewController {
             
             let URLString = self.data[index]["image_l"] as! String
             let imageURL: NSURL = NSURL(string: URLString)!
-            let imageData = NSData(contentsOfURL: imageURL)!
+            
+            guard let imageData = NSData(contentsOfURL: imageURL) else {
+                return
+            }
+            
             let image = self.resizeImage(UIImage(data: imageData)!, rect: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
             
             dispatch_async(q_main, {

@@ -102,7 +102,7 @@ aa</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1265" y="736"/>
+            <point key="canvasLocation" x="1202" y="721"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LtP-cA-CVR">

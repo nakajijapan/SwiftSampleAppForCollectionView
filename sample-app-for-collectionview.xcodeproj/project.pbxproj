@@ -21,7 +21,7 @@
 		DC0186DD1D27DCE9001F7D7D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC0186E71D28BEC8001F7D7D /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */; };
 		DC0186E81D28BEC8001F7D7D /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E51D28BEC8001F7D7D /* Scheculer.swift */; };
-		DC0186E91D28BEC8001F7D7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E61D28BEC8001F7D7D /* ViewController.swift */; };
+		DC0186E91D28BEC8001F7D7D /* RxSwiftHimotokiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E61D28BEC8001F7D7D /* RxSwiftHimotokiViewController.swift */; };
 		DC0186ED1D28BFAF001F7D7D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186EB1D28BFAF001F7D7D /* Item.swift */; };
 		DC0186EE1D28BFAF001F7D7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186EC1D28BFAF001F7D7D /* User.swift */; };
 		DC0186F41D28C3F4001F7D7D /* ArgoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186F11D28C3F4001F7D7D /* ArgoItem.swift */; };
@@ -86,7 +86,7 @@
 		DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
 		DC0186E51D28BEC8001F7D7D /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
-		DC0186E61D28BEC8001F7D7D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC0186E61D28BEC8001F7D7D /* RxSwiftHimotokiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxSwiftHimotokiViewController.swift; sourceTree = "<group>"; };
 		DC0186EB1D28BFAF001F7D7D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DC0186EC1D28BFAF001F7D7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC0186F11D28C3F4001F7D7D /* ArgoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgoItem.swift; sourceTree = "<group>"; };
@@ -138,6 +138,8 @@
 		C0F12C3FA3BE0FF55F6B0B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC0186FC1D28DFFF001F7D7D /* Curry.framework */,
+				DC0186F91D28DFD5001F7D7D /* Argo.framework */,
 				DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */,
 				DC0186CC1D27C835001F7D7D /* Himotoki.framework */,
 				DC0186CD1D27C835001F7D7D /* RxBlocking.framework */,
@@ -154,7 +156,7 @@
 				DC0186EA1D28BFAF001F7D7D /* Models */,
 				DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */,
 				DC0186E51D28BEC8001F7D7D /* Scheculer.swift */,
-				DC0186E61D28BEC8001F7D7D /* ViewController.swift */,
+				DC0186E61D28BEC8001F7D7D /* RxSwiftHimotokiViewController.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -197,8 +199,6 @@
 		DCE319CD19E9481C00F137F5 = {
 			isa = PBXGroup;
 			children = (
-				DC0186FC1D28DFFF001F7D7D /* Curry.framework */,
-				DC0186F91D28DFD5001F7D7D /* Argo.framework */,
 				DCE319D819E9481C00F137F5 /* sample-app-for-collectionview */,
 				DCE319EE19E9481C00F137F5 /* sample-app-for-collectionviewTests */,
 				DCE319D719E9481C00F137F5 /* Products */,
@@ -379,7 +379,7 @@
 				DC0186E81D28BEC8001F7D7D /* Scheculer.swift in Sources */,
 				DC0186F51D28C3F4001F7D7D /* ArgoUser.swift in Sources */,
 				DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */,
-				DC0186E91D28BEC8001F7D7D /* ViewController.swift in Sources */,
+				DC0186E91D28BEC8001F7D7D /* RxSwiftHimotokiViewController.swift in Sources */,
 				DC0186ED1D28BFAF001F7D7D /* Item.swift in Sources */,
 				DC0186F41D28C3F4001F7D7D /* ArgoItem.swift in Sources */,
 				DC0186EE1D28BFAF001F7D7D /* User.swift in Sources */,

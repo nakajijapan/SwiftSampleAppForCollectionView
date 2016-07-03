@@ -46,7 +46,6 @@ class RxSwiftArgoViewController: UIViewController, UICollectionViewDelegate {
             dispatch_async(q_global, {
                 
                 guard let imageData = NSData(contentsOfURL: object.imageL) else {
-                    print("画像データがない")
                     return
                 }
                 

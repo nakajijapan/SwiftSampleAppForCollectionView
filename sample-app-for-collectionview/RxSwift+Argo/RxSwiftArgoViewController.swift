@@ -1,5 +1,5 @@
 //
-//  RxSwiftHimotokiViewController.swift
+//  RxSwiftArgoViewController.swift
 //  sample-app-for-collectionview
 //
 //  Created by nakajijapan on 10/11/14.
@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxBlocking
-import Himotoki
+import Argo
 
 
-class RxSwiftHimotokiViewController: UIViewController, UICollectionViewDelegate {
+class RxSwiftArgoViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet var collectionView:UICollectionView!
     
-    var items = Variable<[Item]>([])
+    var items = Variable<[ArgoItem]>([])
     var loading:Bool         = false
     var currentPage:Int      = 1
     let disposeBag = DisposeBag()
@@ -46,6 +46,7 @@ class RxSwiftHimotokiViewController: UIViewController, UICollectionViewDelegate 
             dispatch_async(q_global, {
                 
                 guard let imageData = NSData(contentsOfURL: object.imageL) else {
+                    print("画像データがない")
                     return
                 }
                 
@@ -75,18 +76,23 @@ class RxSwiftHimotokiViewController: UIViewController, UICollectionViewDelegate 
 
                 let jsonItems = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 let arrayItems = jsonItems["items"] as! [AnyObject]
-
                 let _ = arrayItems.map({
-                    let item = try! Item.decodeValue($0)
-                    self.items.value.append(item)
-                })
+                    
+                    if let j: AnyObject = $0 {
+                        let item:ArgoItem = decode(j)!
+                        print(item)
+                        self.items.value.append(item)
 
+                    }
+                    
+                })
+                
                 self.currentPage = jsonItems["paginator"]!["current_page"] as! Int
                 print("current page = \(self.currentPage)")
                 
                 self.collectionView.reloadData()
                 self.loading = false
-                
+
                 }, onError: { (e) -> Void in
                     print(e)
                 }, onCompleted: { () -> Void in
@@ -110,7 +116,7 @@ class RxSwiftHimotokiViewController: UIViewController, UICollectionViewDelegate 
 
 // MARK: - UIScrollViewDelegate
 
-extension RxSwiftHimotokiViewController: UIScrollViewDelegate {
+extension RxSwiftArgoViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
@@ -137,7 +143,7 @@ extension RxSwiftHimotokiViewController: UIScrollViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension RxSwiftHimotokiViewController: UICollectionViewDelegateFlowLayout {
+extension RxSwiftArgoViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         

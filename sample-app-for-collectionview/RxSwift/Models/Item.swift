@@ -15,6 +15,7 @@ struct Item: Decodable {
     var url:NSURL
     var imageL:NSURL
     var createdAt:NSDate
+    var user:User
 
     static func decode(e: Extractor) throws -> Item {
         
@@ -23,7 +24,8 @@ struct Item: Decodable {
             title:     e <| "title",
             url:       urlTranformer(e <| "url"),
             imageL:    urlTranformer(e <| "image_l"),
-            createdAt: createdAtTransformer(e <| "created_at")
+            createdAt: createdAtTransformer(e <| "created_at"),
+            user:      e <| "user"
 
         )
     }

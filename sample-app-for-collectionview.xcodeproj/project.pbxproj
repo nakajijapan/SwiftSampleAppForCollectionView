@@ -19,14 +19,14 @@
 		DC0186DA1D27C836001F7D7D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC0186D01D27C835001F7D7D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC0186DC1D27DCE9001F7D7D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */; };
 		DC0186DD1D27DCE9001F7D7D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC0186E01D27DF4E001F7D7D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186DF1D27DF4E001F7D7D /* Item.swift */; };
-		DC0186E21D27E07C001F7D7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E11D27E07C001F7D7D /* User.swift */; };
-		DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */; };
-		DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC868DF01C678ECB002228EF /* Scheculer.swift */; };
+		DC0186E71D28BEC8001F7D7D /* NKJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */; };
+		DC0186E81D28BEC8001F7D7D /* Scheculer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E51D28BEC8001F7D7D /* Scheculer.swift */; };
+		DC0186E91D28BEC8001F7D7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186E61D28BEC8001F7D7D /* ViewController.swift */; };
+		DC0186ED1D28BFAF001F7D7D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186EB1D28BFAF001F7D7D /* Item.swift */; };
+		DC0186EE1D28BFAF001F7D7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0186EC1D28BFAF001F7D7D /* User.swift */; };
 		DCB414C61C6F4B7C009B077D /* TopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */; };
 		DCB414CA1C6F4DB4009B077D /* NormalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB414C91C6F4DB4009B077D /* NormalCollectionViewController.swift */; };
 		DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DB19E9481C00F137F5 /* AppDelegate.swift */; };
-		DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE319DD19E9481C00F137F5 /* ViewController.swift */; };
 		DCE319E119E9481C00F137F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE319DF19E9481C00F137F5 /* Main.storyboard */; };
 		DCE319E319E9481C00F137F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE319E219E9481C00F137F5 /* Images.xcassets */; };
 		DCE319E619E9481C00F137F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE319E419E9481C00F137F5 /* LaunchScreen.xib */; };
@@ -75,16 +75,16 @@
 		DC0186CF1D27C835001F7D7D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		DC0186D01D27C835001F7D7D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		DC0186DB1D27DCE9001F7D7D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		DC0186DF1D27DF4E001F7D7D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		DC0186E11D27E07C001F7D7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
-		DC868DF01C678ECB002228EF /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
+		DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NKJHTTPClient.swift; sourceTree = "<group>"; };
+		DC0186E51D28BEC8001F7D7D /* Scheculer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheculer.swift; sourceTree = "<group>"; };
+		DC0186E61D28BEC8001F7D7D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC0186EB1D28BFAF001F7D7D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DC0186EC1D28BFAF001F7D7D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewController.swift; sourceTree = "<group>"; };
 		DCB414C91C6F4DB4009B077D /* NormalCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewController.swift; sourceTree = "<group>"; };
 		DCE319D619E9481C00F137F5 /* sample-app-for-collectionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-app-for-collectionview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE319DA19E9481C00F137F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE319DB19E9481C00F137F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCE319DD19E9481C00F137F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		DCE319E019E9481C00F137F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCE319E219E9481C00F137F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCE319E519E9481C00F137F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -132,23 +132,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DC0186DE1D27DF3E001F7D7D /* Models */ = {
+		DC0186E31D28BEC8001F7D7D /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				DC0186DF1D27DF4E001F7D7D /* Item.swift */,
-				DC0186E11D27E07C001F7D7D /* User.swift */,
+				DC0186EA1D28BFAF001F7D7D /* Models */,
+				DC0186E41D28BEC8001F7D7D /* NKJHTTPClient.swift */,
+				DC0186E51D28BEC8001F7D7D /* Scheculer.swift */,
+				DC0186E61D28BEC8001F7D7D /* ViewController.swift */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		DC0186EA1D28BFAF001F7D7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC0186EB1D28BFAF001F7D7D /* Item.swift */,
+				DC0186EC1D28BFAF001F7D7D /* User.swift */,
 			);
 			path = Models;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
-		DCB414C71C6F4BFF009B077D /* RxSwift */ = {
+		DC0186EF1D28BFCD001F7D7D /* RxSwift+Argo */ = {
 			isa = PBXGroup;
 			children = (
-				DCE319DD19E9481C00F137F5 /* ViewController.swift */,
-				DC868DF01C678ECB002228EF /* Scheculer.swift */,
-				DC868DEE1C678E84002228EF /* NKJHTTPClient.swift */,
 			);
-			name = RxSwift;
+			path = "RxSwift+Argo";
 			sourceTree = "<group>";
 		};
 		DCB414C81C6F4CF6009B077D /* Normal */ = {
@@ -182,16 +190,16 @@
 		DCE319D819E9481C00F137F5 /* sample-app-for-collectionview */ = {
 			isa = PBXGroup;
 			children = (
-				DCE319DB19E9481C00F137F5 /* AppDelegate.swift */,
+				DCE319D919E9481C00F137F5 /* Supporting Files */,
 				DCE319DF19E9481C00F137F5 /* Main.storyboard */,
+				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
+				DCE319E219E9481C00F137F5 /* Images.xcassets */,
+				DCE319DB19E9481C00F137F5 /* AppDelegate.swift */,
 				DCE319FD19E94E5300F137F5 /* CollectionViewCell.swift */,
 				DCB414C51C6F4B7C009B077D /* TopTableViewController.swift */,
-				DCE319E219E9481C00F137F5 /* Images.xcassets */,
-				DCE319E419E9481C00F137F5 /* LaunchScreen.xib */,
-				DC0186DE1D27DF3E001F7D7D /* Models */,
-				DCE319D919E9481C00F137F5 /* Supporting Files */,
+				DC0186E31D28BEC8001F7D7D /* RxSwift */,
+				DC0186EF1D28BFCD001F7D7D /* RxSwift+Argo */,
 				DCB414C81C6F4CF6009B077D /* Normal */,
-				DCB414C71C6F4BFF009B077D /* RxSwift */,
 			);
 			path = "sample-app-for-collectionview";
 			sourceTree = "<group>";
@@ -337,12 +345,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC868DEF1C678E84002228EF /* NKJHTTPClient.swift in Sources */,
-				DC868DF11C678ECB002228EF /* Scheculer.swift in Sources */,
-				DCE319DE19E9481C00F137F5 /* ViewController.swift in Sources */,
+				DC0186E71D28BEC8001F7D7D /* NKJHTTPClient.swift in Sources */,
+				DC0186E81D28BEC8001F7D7D /* Scheculer.swift in Sources */,
 				DCE319DC19E9481C00F137F5 /* AppDelegate.swift in Sources */,
-				DC0186E01D27DF4E001F7D7D /* Item.swift in Sources */,
-				DC0186E21D27E07C001F7D7D /* User.swift in Sources */,
+				DC0186E91D28BEC8001F7D7D /* ViewController.swift in Sources */,
+				DC0186ED1D28BFAF001F7D7D /* Item.swift in Sources */,
+				DC0186EE1D28BFAF001F7D7D /* User.swift in Sources */,
 				DCB414CA1C6F4DB4009B077D /* NormalCollectionViewController.swift in Sources */,
 				DCB414C61C6F4B7C009B077D /* TopTableViewController.swift in Sources */,
 				DCE319FE19E94E5300F137F5 /* CollectionViewCell.swift in Sources */,

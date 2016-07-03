@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxBlocking
-import SwiftyJSON
 import Himotoki
 
 
@@ -47,7 +46,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             dispatch_async(q_global, {
                 
                 guard let imageData = NSData(contentsOfURL: object.imageL) else {
-                    print("画像データがない")
                     return
                 }
                 

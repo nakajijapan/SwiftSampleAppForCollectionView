@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Rx Swift Himotoki View Controller-->
+        <!--Himotoki-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="RxSwiftHimotokiViewController" customModule="sample_app_for_collectionview" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,6 +96,7 @@ aa</string>
                             <constraint firstAttribute="trailing" secondItem="HAI-Lf-TtH" secondAttribute="trailing" id="xSc-WI-YRb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Himotoki" id="3zR-fc-cLw"/>
                     <connections>
                         <outlet property="collectionView" destination="HAI-Lf-TtH" id="qzs-tf-0sv"/>
                     </connections>
@@ -135,11 +136,11 @@ aa</string>
                                         <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AcK-vg-hZl" id="r0U-gc-wFi">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="CollectionView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBH-AX-dwL">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -155,11 +156,11 @@ aa</string>
                                         <rect key="frame" x="0.0" y="108" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xbO-IM-HDQ" id="Nha-4i-hen">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="CollectionView for RxSwift + Himotoki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="92h-rC-L43">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,11 +176,11 @@ aa</string>
                                         <rect key="frame" x="0.0" y="152" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RyZ-pG-s5s" id="CvU-AB-XRB">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="CollectionView for RxSwift + Argo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G8n-fd-68t">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -188,7 +189,27 @@ aa</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="HZs-uV-PDw" kind="push" id="akO-fi-OHm"/>
+                                            <segue destination="HZs-uV-PDw" kind="show" id="1lA-yV-3fM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="9rR-nR-sRE" style="IBUITableViewCellStyleDefault" id="reU-b0-RD8">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="reU-b0-RD8" id="5v5-I6-3h5">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="CollectionView for RxSwift + Unbox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9rR-nR-sRE">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="6Oz-fy-lnH" kind="show" id="j5O-kq-Euq"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -205,7 +226,7 @@ aa</string>
             </objects>
             <point key="canvasLocation" x="506" y="946"/>
         </scene>
-        <!--Normal Collection View Controller-->
+        <!--Normal-->
         <scene sceneID="J5b-fc-wfn">
             <objects>
                 <viewController id="Rc4-bT-U3G" customClass="NormalCollectionViewController" customModule="sample_app_for_collectionview" customModuleProvider="target" sceneMemberID="viewController">
@@ -296,6 +317,7 @@ aa</string>
                             <constraint firstItem="PBk-RD-H92" firstAttribute="top" secondItem="hvG-Bl-d1h" secondAttribute="top" id="aIc-og-MMv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Normal" id="W20-t3-8JV"/>
                     <connections>
                         <outlet property="collectionView" destination="PBk-RD-H92" id="uvQ-pQ-EdU"/>
                     </connections>
@@ -304,7 +326,7 @@ aa</string>
             </objects>
             <point key="canvasLocation" x="1303" y="1404"/>
         </scene>
-        <!--Rx Swift Argo View Controller-->
+        <!--Argo-->
         <scene sceneID="KWN-t7-ocs">
             <objects>
                 <viewController id="HZs-uV-PDw" customClass="RxSwiftArgoViewController" customModule="sample_app_for_collectionview" customModuleProvider="target" sceneMemberID="viewController">
@@ -394,7 +416,7 @@ aa</string>
                             <constraint firstItem="skd-Nq-ZfJ" firstAttribute="top" secondItem="FXL-BM-EsI" secondAttribute="top" id="wK9-ux-hMh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OS7-MJ-sfr"/>
+                    <navigationItem key="navigationItem" title="Argo" id="odg-em-tgR"/>
                     <connections>
                         <outlet property="collectionView" destination="skd-Nq-ZfJ" id="61t-zP-w4m"/>
                     </connections>
@@ -402,6 +424,105 @@ aa</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHL-7g-rfX" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="506" y="1676"/>
+        </scene>
+        <!--Unbox-->
+        <scene sceneID="3fn-Mm-5nS">
+            <objects>
+                <viewController id="6Oz-fy-lnH" customClass="RxSwiftUnboxViewController" customModule="sample_app_for_collectionview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IUh-uX-6CL"/>
+                        <viewControllerLayoutGuide type="bottom" id="mQn-4H-AZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JbP-Gh-XIF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5KV-tV-FLh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="8WL-rP-9dV">
+                                    <size key="itemSize" width="148" height="148"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="nPn-gY-Md6" customClass="CollectionViewCell" customModule="sample_app_for_collectionview" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="72" width="148" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cxI-vB-Otg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
+                                                </imageView>
+                                                <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stu-YE-poN">
+                                                    <rect key="frame" x="0.0" y="106" width="148" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="s5M-y8-RKZ"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9co-VB-k10">
+                                                    <rect key="frame" x="8" y="112" width="132" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="Qcl-sC-EGa"/>
+                                                        <constraint firstAttribute="height" constant="21" id="YX6-Ue-QD4"/>
+                                                    </constraints>
+                                                    <string key="text">cat
+aa</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="YX6-Ue-QD4"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="9co-VB-k10" firstAttribute="leading" secondItem="nPn-gY-Md6" secondAttribute="leading" constant="8" id="3hV-lE-d8k"/>
+                                            <constraint firstAttribute="bottom" secondItem="Stu-YE-poN" secondAttribute="bottom" id="5R6-PX-hnY"/>
+                                            <constraint firstItem="cxI-vB-Otg" firstAttribute="top" secondItem="nPn-gY-Md6" secondAttribute="top" id="9Rh-ql-ch6"/>
+                                            <constraint firstAttribute="trailing" secondItem="cxI-vB-Otg" secondAttribute="trailing" id="KNz-6M-bJ1"/>
+                                            <constraint firstAttribute="bottom" secondItem="cxI-vB-Otg" secondAttribute="bottom" id="MlZ-OJ-INW"/>
+                                            <constraint firstAttribute="trailing" secondItem="Stu-YE-poN" secondAttribute="trailing" id="UuC-45-L6c"/>
+                                            <constraint firstAttribute="trailing" secondItem="9co-VB-k10" secondAttribute="trailing" constant="8" id="ffI-dO-pJY"/>
+                                            <constraint firstItem="cxI-vB-Otg" firstAttribute="leading" secondItem="nPn-gY-Md6" secondAttribute="leading" id="gi5-ga-MYL"/>
+                                            <constraint firstAttribute="bottom" secondItem="9co-VB-k10" secondAttribute="bottom" constant="8" id="oL0-Uz-OBg"/>
+                                            <constraint firstItem="Stu-YE-poN" firstAttribute="leading" secondItem="nPn-gY-Md6" secondAttribute="leading" id="rHK-Ga-Lio"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mainImageView" destination="cxI-vB-Otg" id="N0g-bv-3KB"/>
+                                            <outlet property="titleLabel" destination="9co-VB-k10" id="e5D-6Z-3P2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="6Oz-fy-lnH" id="zMy-aG-73U"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5KV-tV-FLh" secondAttribute="trailing" id="9Kr-Bs-GSY"/>
+                            <constraint firstItem="mQn-4H-AZE" firstAttribute="top" secondItem="5KV-tV-FLh" secondAttribute="bottom" id="JP2-5h-9e5"/>
+                            <constraint firstItem="5KV-tV-FLh" firstAttribute="leading" secondItem="JbP-Gh-XIF" secondAttribute="leading" id="Twt-WS-wPh"/>
+                            <constraint firstItem="5KV-tV-FLh" firstAttribute="top" secondItem="JbP-Gh-XIF" secondAttribute="top" id="cC8-Uc-AFN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Unbox" id="3MT-75-Rjp"/>
+                    <connections>
+                        <outlet property="collectionView" destination="5KV-tV-FLh" id="KLI-y8-P6C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wLR-fi-bhT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-203" y="1500"/>
         </scene>
     </scenes>
 </document>
